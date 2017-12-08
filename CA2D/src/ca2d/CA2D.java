@@ -1,7 +1,7 @@
 /*
  * Joshua Haupt
- * CS 490 Project 4 1D Cellular Automata
- * 0 is ~ and 1 is ^
+ * CS 490 Project 4 2D Cellular Automata for Game of Life
+ * 0 is ~ and 1 is ^ [this can be changed in print()]
  */
 package ca2d;
 
@@ -13,9 +13,7 @@ import java.util.Arrays;
  */
 public class CA2D {
 
-    /**
-     * @param args the command line arguments
-     */
+    // Global class variables
     public int CA_M = 50;
     public int CA_N = 50;
     public int CA_GENERATIONS = 100;
@@ -50,21 +48,20 @@ public class CA2D {
     public void print() {
         System.out.println("CA_GENERATION: " + CA_GENERATION + " CA_M: " + CA_M + " CA_N: " + CA_N + " CA_GENERATIONS: " + CA_GENERATIONS);
         System.out.println(Arrays.deepToString(CA_CELLS));
-        
-        for(int i = 0; i < CA_M; i++){
-            for(int j = 0; j < CA_N; j++){
+
+        for (int i = 0; i < CA_M; i++) {
+            for (int j = 0; j < CA_N; j++) {
                 // replace 0 with ~
-                if(CA_CELLS[i][j] == 0){
+                if (CA_CELLS[i][j] == 0) {
                     System.out.print("~");
-                }
-                // repalce 1 with ^
-                else{
+                } // repalce 1 with ^
+                else {
                     System.out.print("^");
                 }
             }
             System.out.println();
         }
-        
+
     }
 
     public void initialize() {
@@ -92,6 +89,7 @@ public class CA2D {
                     for (int l = -1; l <= 1; l++) {
                         aliveNeighbors -= CA_CELLS[i][j];
 
+                        // Game of Life rules
                         // Any live cell with fewer than two live neighbors dies
                         if ((CA_CELLS[i][j] == 1) && (aliveNeighbors < 2)) {
                             nextGen[i][j] = 0;
@@ -104,14 +102,11 @@ public class CA2D {
                         } // Any dead cell with exactly three live neighbors becomes a live cell
                         else if ((CA_CELLS[i][j] == 0) && (aliveNeighbors == 3)) {
                             nextGen[i][j] = 1;
-                        } // Any live cell with two or three live neighbors lives on
-                        // PANIC
-                        else //nextGen[i][j] = CA_CELLS[i][j];
-                        {   
+                        } // ELSE State stays the same
+                        else {
                             nextGen[i][j] = CA_CELLS[i][j];
                             //System.out.println("DBG: reached else in genNextState()");
                         }
-                        //System.exit(1);
 
                     }
                 }
@@ -122,88 +117,79 @@ public class CA2D {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
-        
+
         // Run 1
         // 100 generations
         // default initialization
-        
         System.out.println("Run 1");
-        
+
         CA2D run1 = new CA2D();
         run1.CA_GENERATIONS = 100;
-        
+
         run1.initialize();
-        
-        for(int i = 0; i < run1.CA_GENERATIONS+1; i++){
+
+        for (int i = 0; i < run1.CA_GENERATIONS + 1; i++) {
             run1.print();
             run1.genNextState();
             run1.CA_GENERATION++;
         }
-        
+
         run1.printDog();
-        
-        
+
         // Run 2
         // 100 generations
         // default initialization
-        
         System.out.println("Run 2");
-        
+
         CA2D run2 = new CA2D();
         run2.CA_GENERATIONS = 100;
-        
+
         run2.initialize();
-        
-        for(int i = 0; i < run2.CA_GENERATIONS+1; i++){
+
+        for (int i = 0; i < run2.CA_GENERATIONS + 1; i++) {
             run2.print();
             run2.genNextState();
             run2.CA_GENERATION++;
         }
-        
+
         run2.printDog();
-        
-        
+
         // Run 3
         // 100 generations
         // default initialization
-        
         System.out.println("Run 3");
-        
+
         CA2D run3 = new CA2D();
         run3.CA_GENERATIONS = 100;
-        
+
         run3.initialize();
-        
-        for(int i = 0; i < run3.CA_GENERATIONS+1; i++){
+
+        for (int i = 0; i < run3.CA_GENERATIONS + 1; i++) {
             run3.print();
             run3.genNextState();
             run3.CA_GENERATION++;
         }
-        
+
         run3.printDog();
-        
-        
+
         // Run 4
         // 100 generations
         // default initialization
-        
         System.out.println("Run 4");
-        
+
         CA2D run4 = new CA2D();
         run4.CA_GENERATIONS = 100;
-        
+
         run4.initialize();
-        
-        for(int i = 0; i < run4.CA_GENERATIONS+1; i++){
+
+        for (int i = 0; i < run4.CA_GENERATIONS + 1; i++) {
             run4.print();
             run4.genNextState();
             run4.CA_GENERATION++;
         }
-        
+
         run4.printDog();
-        
-        
+
     }
 
 }

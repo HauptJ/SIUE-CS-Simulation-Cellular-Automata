@@ -1,7 +1,7 @@
 /*
  * Joshua Haupt
  * CS 490 Project 4 1D Cellular Automata
- * 0 is ~ and 1 is ^
+ * 0 is ~ and 1 is ^ [this can be changed in print()]
  */
 package ca1d;
 
@@ -13,9 +13,6 @@ import java.util.Arrays;
  */
 public class CA1D {
 
-    /**
-     * @param args the command line arguments
-     */
     // Global class variables
     public int CA_INIT = 0;
     public int CA_RULE = 90;
@@ -161,7 +158,6 @@ public class CA1D {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
 
         // Part 1
         // Rule 90
