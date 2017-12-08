@@ -5,6 +5,9 @@
  */
 package ca1d;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Arrays;
 
 /**
@@ -22,6 +25,9 @@ public class CA1D {
     public int[] CA_CELLS;
 
     public void printDog() {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("");
         System.out.println("");
@@ -43,6 +49,9 @@ public class CA1D {
         System.out.println("");
         System.out.println("");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
     }
 
     public void print() {
@@ -157,7 +166,12 @@ public class CA1D {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        // laziest way to write to file
+        // http://www.geeksforgeeks.org/redirecting-system-out-println-output-to-a-file-in-java/     
+        PrintStream file = new PrintStream(new File("CA1D.txt"));
+        System.setOut(file);
 
         // Part 1
         // Rule 90

@@ -1,0 +1,19 @@
+Joshua Haupt
+CS 490 Project 4 Cellular Automata
+
+My submission consists of two individual JAVA programs. CA1D is for the 1D CA and CA2D is for the 2D CA.
+The code was written in and run using Netbeans.
+As noted in the program headers, 0 is ~ and 1 is ^ and this can be changed in print() functions.
+
+1D Cellular Automata
+Each of the 5 parts can be found in the CA1D.txt output file by searching for "Part 1", "Part 2" and so on and each part is seperated by
+an ascii dog.
+
+The initial state for each "Part" is identified by "CA_GENERATION: 0"
+
+2D Cellular Automata for Game of Life
+
+Each of the 5 runs can be found in the CA2D.txt output file by searching for "Run 1", "Run 2" and so on and each part is seperated by
+an ascii dog.
+
+The initial state for each "Run" is identified by "CA_GENERATION: 0"
