@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Joshua Haupt
+ * CS 490 Project 4 Cellular Automata
+ * 0 is ~ and 1 is ^
  */
 package ca1d;
 
@@ -27,9 +27,38 @@ public class CA1D {
     public int[] CA_CELLS;
     
     
+    public void printDog(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("            /~~~~~~~~\\                           _");
+        System.out.println("    ##\\__/ @)      ~~~~~~~~\\                     \\ \\ ) )");
+        System.out.println("    |              /~~\\~~~~~                ((    |  \\");
+        System.out.println("     \\    /           |                          /   |");
+        System.out.println("      (~~~   /         \\____________/~~~~~~~~~~~~   /");
+        System.out.println("       ~~~~|~                                     /");
+        System.out.println("           :                                      |");
+        System.out.println("            \\                                     |");
+        System.out.println("            |                               /      \\");
+        System.out.println("             \\  \\_         :         \\     /~~~\\    |");
+        System.out.println("             /   :~~~~~|   :~~~~~~~~~~|   :     :   :");
+        System.out.println("            /    :    /    :         /    :    /    :");
+        System.out.println("        (~~~     )(~~~     )     (~~~     )(~~~     )");
+        System.out.println("         ~~~~~~~~  ~~~~~~~~       ~~~~~~~~  ~~~~~~~~");
+        System.out.println("          STOMP     STOMP          STOMP     STOMP");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+    
+    
     public void print(){
         System.out.println("CA_GENERATION: " + CA_GENERATION + " CA_INIT: " + CA_INIT + " CA_RULE: " + CA_RULE + " CA_WIDTH: " + CA_WIDTH + " CA_GENERATIONS: " + CA_GENERATIONS);
-        System.out.println(Arrays.toString(CA_CELLS));
+        //System.out.println(Arrays.toString(CA_CELLS));
+        String genStrOrig = Arrays.toString(CA_CELLS);
+        String genStrRepl0 = genStrOrig.replaceAll("0", "~");
+        String genStrRepl1 = genStrRepl0.replaceAll("1", "^");
+        System.out.println(genStrRepl1);
     }
     
     
@@ -165,8 +194,6 @@ public class CA1D {
         CA1D part1 = new CA1D();
         part1.CA_GENERATIONS = 30;
         
-        //System.out.println("Initial state");
-        
         part1.initialize();
         
         for(int i = 0; i < part1.CA_GENERATIONS+1; i++){
@@ -175,26 +202,95 @@ public class CA1D {
             part1.CA_GENERATION++;
         }
         
+        part1.printDog();
+        
         
         // Part 2
         // Rule 90
         // 100 generations
         // default initialization
         
-        /*System.out.println("Part 2");
+        System.out.println("Part 2");
         
         CA1D part2 = new CA1D();
         part2.CA_GENERATIONS = 100;
         
-        //System.out.println("Initial state");
-        
-        part1.initialize();
+        part2.initialize();
         
         for(int i = 0; i < part2.CA_GENERATIONS+1; i++){
             part2.print();
             part2.genNextState();
             part2.CA_GENERATION++;
-        }*/
+        }
+        
+        part2.printDog();
+        
+        
+        // Part 3
+        // Rule 90
+        // 50 generations
+        // cells 33 and 66 initialized to 1
+        
+        System.out.println("Part 3");
+        
+        CA1D part3 = new CA1D();
+        part3.CA_GENERATIONS = 50;
+        part3.CA_INIT = 1;
+        
+        part3.initialize();
+        
+        for(int i = 0; i < part3.CA_GENERATIONS+1; i++){
+            part3.print();
+            part3.genNextState();
+            part3.CA_GENERATION++;
+        }
+        
+        part3.printDog();
+        
+        
+        // Part 4
+        // Rule 30
+        // 50 generations
+        // default initialization
+        
+        System.out.println("Part 4");
+        
+        CA1D part4 = new CA1D();
+        part4.CA_GENERATIONS = 50;
+        part4.CA_RULE = 30;
+        
+        part4.initialize();
+        
+        for(int i = 0; i < part4.CA_GENERATIONS+1; i++){
+            part4.print();
+            part4.genNextState();
+            part4.CA_GENERATION++;
+        }
+        
+        part4.printDog();
+        
+        
+        // Part 5
+        // Rule 30
+        // 200 generations
+        // default initialization
+        
+        System.out.println("Part 5");
+        
+        CA1D part5 = new CA1D();
+        part5.CA_GENERATIONS = 200;
+        part5.CA_RULE = 30;
+        
+        part5.initialize();
+        
+        for(int i = 0; i < part5.CA_GENERATIONS+1; i++){
+            part5.print();
+            part5.genNextState();
+            part5.CA_GENERATION++;
+        }
+        
+        part5.printDog();
+        
     }
     
 }
